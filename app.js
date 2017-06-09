@@ -33,7 +33,7 @@ bot.dialog('menu', (session, args, next) => {
         session.endDialog();
     });
 }).triggerAction({
-    matches: /^menu$/,
+    matches: /^.*menu$/,
     onSelectAction: (session, args, next) => {
         // Add the help dialog to the dialog stack 
         // (override the default behavior of replacing the stack)
