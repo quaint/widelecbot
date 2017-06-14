@@ -36,8 +36,18 @@ bot.dialog('menu', (session, args, next) => {
 }).triggerAction({
     matches: /^.*menu$/,
     onSelectAction: (session, args, next) => {
-        // Add the help dialog to the dialog stack 
-        // (override the default behavior of replacing the stack)
+        session.beginDialog(args.action, args);
+    }
+});
+bot.dialog('pomoc', (session, args, next) => {
+    // Send message to the user and end this dialog
+    request(url, function(err, resp, body) {
+        session.send('Zamawiamy przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
+        session.endDialog();
+    });
+}).triggerAction({
+    matches: /^.*pomoc$/,
+    onSelectAction: (session, args, next) => {
         session.beginDialog(args.action, args);
     }
 });
