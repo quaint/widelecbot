@@ -30,6 +30,7 @@ bot.dialog('menu', (session, args, next) => {
         $ = cheerio.load(body);
         menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div > div > div > div > div > div'); //use your CSS selector here
         session.send($(menuTag).text());
+        session.send('Zamawiamy przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
         session.endDialog();
     });
 }).triggerAction({
