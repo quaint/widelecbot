@@ -28,7 +28,7 @@ bot.dialog('menu', (session, args, next) => {
     // Send message to the user and end this dialog
     request(url, function(err, resp, body) {
         $ = cheerio.load(body);
-        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div > div > div > div > div > div'); //use your CSS selector here
+        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
         session.send($(menuTag).text());
         session.endDialog();
     });
