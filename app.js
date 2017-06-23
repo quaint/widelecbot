@@ -42,6 +42,7 @@ bot.dialog('menu', (session, args, next) => {
 bot.dialog('pomoc', (session, args, next) => {
     // Send message to the user and end this dialog
      session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
+     session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1tiejXab91kk9LA_hwnBCpO1iVzjrsMxWxIuwPMcSkvg');
      session.endDialog();
 }).triggerAction({
     matches: /.*pomoc$/,
