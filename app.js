@@ -22,31 +22,7 @@ server.post('/api/messages', connector.listen());
 
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
-    session.send("Znam tylko menu, ale szybko się uczę");
-});
-bot.dialog('menu', (session, args, next) => {
-    // Send message to the user and end this dialog
-    request(url, function(err, resp, body) {
-        $ = cheerio.load(body);
-        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
-        session.send($(menuTag).text());
-        session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
-        session.endDialog();
-    });
-}).triggerAction({
-    matches: /.*menu$/,
-    onSelectAction: (session, args, next) => {
-        session.beginDialog(args.action, args);
-    }
-});
-bot.dialog('pomoc', (session, args, next) => {
-    // Send message to the user and end this dialog
-     session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
-     session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1tiejXab91kk9LA_hwnBCpO1iVzjrsMxWxIuwPMcSkvg');
+     session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1L9wzEJwxzCD8Hnm1');
+     session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1qf2s7RV5QeVXcSNXK1KI12oiMWMGyb9bWFBUjVhVQLo');
      session.endDialog();
-}).triggerAction({
-    matches: /.*pomoc$/,
-    onSelectAction: (session, args, next) => {
-        session.beginDialog(args.action, args);
-    }
 });
