@@ -44,9 +44,9 @@ bot.dialog('udko', (session, args, next) => {
         $ = cheerio.load(body);
         menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
         if($(menuTag).text().indexOf("Udko") !== -1) {
-           session.send('Niestety udka dziś brak:(');
-        } else {
            session.send('Jest udko:D Robert zamawiaj!');
+        } else {
+           session.send('Niestety udka dziś brak:(');           
         }
         session.endDialog();
     });
