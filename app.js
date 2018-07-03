@@ -46,7 +46,7 @@ bot.dialog('udko', (session, args, next) => {
         if($(menuTag).text().indexOf("Udko") !== -1) {
            session.send('Jest udko:D Robert zamawiaj!');
         } else {
-           session.send('Niestety udka dziś brak:(');           
+           session.send('Niestety dziś udka brak:(');           
         }
         session.endDialog();
     });
