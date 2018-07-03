@@ -39,6 +39,23 @@ bot.dialog('menu', (session, args, next) => {
         session.beginDialog(args.action, args);
     }
 });
+bot.dialog('udko', (session, args, next) => {
+    request(url, function(err, resp, body) {
+        $ = cheerio.load(body);
+        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
+        if($(menuTag).text().indexOf("Udko") !== -1) {
+           session.send('Niestety udka dziś brak:(');
+        } else {
+           session.send('Jest udko:D Robert zamawiaj!');
+        }
+        session.endDialog();
+    });
+}).triggerAction({
+    matches: /.*udko$/,
+    onSelectAction: (session, args, next) => {
+        session.beginDialog(args.action, args);
+    }
+});
 bot.dialog('pomoc', (session, args, next) => {
     // Send message to the user and end this dialog
      session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
