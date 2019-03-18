@@ -39,7 +39,7 @@ bot.dialog('menu', (session, args, next) => {
          session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
          session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
         } else {
-         session.semd('Dzisiejsze menu jest nadal w trakcie tworzenia:( Proszę spróbować później.');
+         session.send('Dzisiejsze menu jest nadal w trakcie tworzenia:( Proszę spróbować później.');
         }
         session.endDialog();
     });
