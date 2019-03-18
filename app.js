@@ -2,6 +2,7 @@ var restify = require('restify');
 var builder = require('botbuilder');
 var request = require('request');
 var cheerio = require('cheerio');
+const dateformat = require('dateformat');
 
 var url = 'http://nawidelcukoszalin.pl';
 
@@ -31,9 +32,15 @@ bot.dialog('menu', (session, args, next) => {
         menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
         let menu = $(menuTag).text().replace(/\n\n/g, "")
         menu = menu.substring(0, menu.indexOf("Cennik:"))
-        session.send(menu);
-        session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
-        session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
+        let now = new Date();
+        let today = dateformat(now, "dd/mm/yyyy");
+        if(menu.indexOf(today) !== -1) {
+         session.send(menu);
+         session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
+         session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
+        } else {
+         session.semd('Dzisiejsze menu jest nadal w trakcie tworzenia:( Proszę spróbować później.');
+        }
         session.endDialog();
     });
 }).triggerAction({
