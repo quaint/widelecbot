@@ -34,7 +34,7 @@ bot.dialog('menu', (session, args, next) => {
         menu = menu.substring(0, menu.indexOf("Cennik:"))
         let now = new Date();
         let today = dateformat(now, "dd/mm/yyyy");
-        if(menu.indexOf(today) === -1) {
+        if(menu.indexOf(today) !== -1) {
          session.send(menu);
          session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
          session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
