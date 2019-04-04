@@ -5,6 +5,7 @@ var cheerio = require('cheerio');
 const dateformat = require('dateformat');
 
 var url = 'http://nawidelcukoszalin.pl';
+var url_park = 'http://parkcaffe.pl'
 
 // Setup Restify Server
 var server = restify.createServer();
@@ -45,6 +46,21 @@ bot.dialog('menu', (session, args, next) => {
     });
 }).triggerAction({
     matches: /.*menu$/,
+    onSelectAction: (session, args, next) => {
+        session.beginDialog(args.action, args);
+    }
+});
+bot.dialog('park', (session, args, next) => {
+    // Send message to the user and end this dialog
+    request(url_park, function(err, resp, body) {
+        $ = cheerio.load(body);
+        menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div:nth-child(6)');
+        let menu = $(menuTag).text()
+        session.send(menu);
+        session.endDialog();
+    });
+}).triggerAction({
+    matches: /.*park/,
     onSelectAction: (session, args, next) => {
         session.beginDialog(args.action, args);
     }
