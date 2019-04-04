@@ -55,7 +55,8 @@ bot.dialog('park', (session, args, next) => {
     request(url_park, function(err, resp, body) {
         $ = cheerio.load(body);
         menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div:nth-child(6)');
-        let menu = $(menuTag).text()
+        let menu = $(menuTag).text().replace(/\n\n/g, "")
+        menu = menu.substring(0, menu.indexOf("Dzisiejsze menu"))
         session.send(menu);
         session.endDialog();
     });
