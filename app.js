@@ -57,8 +57,8 @@ bot.dialog('park', (session, args, next) => {
         menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div:nth-child(6)');
         let menu = $(menuTag).text();
         //menu = menu.substring(0, menu.indexOf("Wykup abonament"));
-        menu = menu.replace("Wykup abonament\n", "");
-        menu = menu.replace("10 dni w cenie 150 zł z deserem 200 zł\n", "");
+        menu = menu.replace("Wykup abonament", "");
+        menu = menu.replace("10 dni w cenie 150 zł z deserem 200 zł", "");
         menu = menu.substring(menu.indexOf("22 zł") + 6);
         session.send(menu);
         session.endDialog();
