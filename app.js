@@ -38,6 +38,7 @@ bot.dialog('menu', (session, args, next) => {
         if(menu.indexOf(today) !== -1) {
          session.send(menu);
          session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
+         session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1rblfoj6a8zf0VUzlcEq7PC4t1gfGGxj16GcoistNq_4');
          session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
         } else {
          session.send('Dzisiejsze menu nie jest jeszcze gotowe:( Proszę spróbować później.');
@@ -90,7 +91,7 @@ bot.dialog('pomoc', (session, args, next) => {
     // Send message to the user and end this dialog
      session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
      session.send('Po 11:30 zamówienia potwierdzamy telefonicznie 94 347 17 21 lub 515 083 735');
-     session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1tiejXab91kk9LA_hwnBCpO1iVzjrsMxWxIuwPMcSkvg');
+     session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1rblfoj6a8zf0VUzlcEq7PC4t1gfGGxj16GcoistNq_4');
      session.endDialog();
 }).triggerAction({
     matches: /.*pomoc$/,
