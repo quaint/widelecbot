@@ -55,7 +55,7 @@ bot.dialog('park', (session, args, next) => {
     // Send message to the user and end this dialog
     request(url_park, function(err, resp, body) {
         $ = cheerio.load(body);
-        menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div');
+        menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div.vc_column-gap-3');
         let menu = $(menuTag).text();
         //menu = menu.substring(0, menu.indexOf("Wykup abonament"));
         menu = menu.replace("Wykup abonament", "");
