@@ -7,6 +7,8 @@ const dateformat = require('dateformat');
 var url = 'http://nawidelcukoszalin.pl';
 var url_park = 'http://parkcaffe.pl'
 
+var inMemoryStorage = new builder.MemoryBotStorage();
+
 // Setup Restify Server
 var server = restify.createServer();
 server.listen(process.env.port || process.env.PORT || 3978, function () {
@@ -25,7 +27,8 @@ server.post('/api/messages', connector.listen());
 // Receive messages from the user and respond by echoing each message back (prefixed with 'You said:')
 var bot = new builder.UniversalBot(connector, function (session) {
     session.send("Znam tylko menu, ale szybko się uczę");
-});
+}).set('storage', inMemoryStorage);
+
 bot.dialog('menu', (session, args, next) => {
     // Send message to the user and end this dialog
     request(url, function(err, resp, body) {
