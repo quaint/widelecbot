@@ -60,10 +60,7 @@ bot.dialog('park', (session, args, next) => {
         $ = cheerio.load(body);
         menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div.vc_column-gap-3');
         let menu = $(menuTag).text();
-        //menu = menu.substring(0, menu.indexOf("Wykup abonament"));
-        menu = menu.replace("Wykup abonament", "");
-        menu = menu.replace("10 dni w cenie 150 zł z deserem 200 zł", "");
-        menu = menu.substring(menu.indexOf("22 zł") + 6);
+        menu = menu.substring(menu.indexOf("215 zł") + 6);
         session.send(menu);
         session.endDialog();
     });
