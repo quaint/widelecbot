@@ -61,7 +61,7 @@ bot.dialog('park', (session, args, next) => {
         menuTag = $('#Content > div > div > div > div.section.the_content.has_content > div > div > div.vc_column-gap-3');
         let menu = $(menuTag).text();
         menu = menu.substring(menu.indexOf("215 zł") + 6);
-        menu = menu.replace("\n", "");
+       console.log(menu);
         session.send(menu);
         session.endDialog();
     });
