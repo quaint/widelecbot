@@ -33,9 +33,9 @@ bot.dialog('menu', (session, args, next) => {
     // Send message to the user and end this dialog
     request(url, function(err, resp, body) {
         $ = cheerio.load(body);
-        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div.wpb_text_column > div');
+        menuTag = $('#menu > div > div > div.vc_col-sm-4.wpb_column.vc_column_container > div > div > div > div');
         let menu = $(menuTag).text().replace(/\n\n/g, "")
-        menu = menu.substring(0, menu.indexOf("Cennik:"))
+        //menu = menu.substring(0, menu.indexOf("Cennik:"))
         let now = new Date();
         let today = dateformat(now, "dd/mm/yyyy");
         if(menu.indexOf(today) !== -1) {
