@@ -38,9 +38,9 @@ bot.dialog('menu', (session, args, next) => {
         //menu = menu.substring(0, menu.indexOf("Cennik:"))
         let now = new Date();
         let todayFormat1 = dateformat(now, "dd/mm/yyyy");
-        let todayFormat2 = dateformat(now, "dd.mm.yyyy");
+        //let todayFormat2 = dateformat(now, "dd.mm.yyyy");
         console.log(menu)
-        if(menu.indexOf(todayFormat1) !== -1 || menu.indexOf(todayFormat2) !== -1) {
+        if(menu.indexOf(todayFormat1) !== -1) { // || menu.indexOf(todayFormat2) !== -1) {
          session.send(menu);
          session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
          session.send('Weryfikacja -> https://docs.google.com/spreadsheets/d/1rblfoj6a8zf0VUzlcEq7PC4t1gfGGxj16GcoistNq_4');
