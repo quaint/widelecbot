@@ -40,6 +40,8 @@ bot.dialog('menu', (session, args, next) => {
         let todayFormat1 = dateformat(now, "dd/mm/yyyy");
         let todayFormat2 = dateformat(now, "dd'.'mm'.'yyyy");
         console.log(menu)
+        console.log(todayFormat1)
+        console.log(todayFormat2)
         if(menu.indexOf(todayFormat1) !== -1 || menu.indexOf(todayFormat2) !== -1) {
          session.send(menu);
          session.send('Zamawiamy do 11:30 przez formularz -> https://goo.gl/forms/1W45f7VSnWU9HW6o2');
