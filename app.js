@@ -37,8 +37,8 @@ bot.dialog('menu', (session, args, next) => {
         let menu = $(menuTag).text().replace(/\n\n/g, "")
         //menu = menu.substring(0, menu.indexOf("Cennik:"))
         let now = new Date();
-        let todayFormat1 = dateformat(now, "dd/mm/yyyy");
-        let todayFormat2 = dateformat(now, "dd'.'mm'.'yyyy");
+        let todayFormat1 = dateformat(now, "dd/mm");
+        let todayFormat2 = dateformat(now, "dd'.'mm");
         console.log(menu)
         console.log(todayFormat1)
         console.log(todayFormat2)
